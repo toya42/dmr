@@ -15,6 +15,15 @@ title="density contour of double mach reflection problem (t=0.2)">
 
 density contour (t=0.2) of double mach reflection problem
 
+# Motivation of this repository
+
+dmr was firstly (now) writtern in FORTRAN77.
+
+The objective of the contributor is to evaluate the impact of each new feature in "Modern Fortran" on computation speed.
+"Modern Fortran" refers to Fortran 90/95 and later.
+
+If you have any suggestion/knowledge/question, please post [issues](https://github.com/toya42/dmr/issues)!
+
 ## Numerical method
 
 ### spatial discretization
@@ -27,7 +36,7 @@ third order MUSCL interpolation with minmod limiter
 
 ### Riemann solver
 
-SLAU
+[SLAU](https://www.researchgate.net/publication/258474939_Parameter-Free_simple_Low-Dissipation_AUSM-Family_scheme_for_all_speeds)
 
 ### time integration
 
