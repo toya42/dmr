@@ -7,7 +7,7 @@ A numerical simulation code for a double mach reflection problem.
 dmr is a code of finite difference method for computational fluid dynamics, written in FORTRAN77. The code can simulate double mach reflection problem.
 
 <p align="center">
-     <img src="https://github.com/toya42/garage/blob/master/dmr/density_contour.jpeg"
+     <img src="https://github.com/toya42/garage/blob/master/dmr/density_contour.gif"
 width="954" height="401"
 alt="double mach reflection"
 title="density contour of double mach reflection problem (t=0.2)">
