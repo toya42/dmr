@@ -13,7 +13,21 @@ alt="double mach reflection"
 title="density contour of double mach reflection problem (t=0.2)">
 </p>
 
-density contour ($t$=0.2) of double mach reflection problem
+density contour (t=0.2) of double mach reflection problem
+
+## Numerical method
+
+### spatial discretization and interpolation
+
+finite difference method with third order MUSCL interpolation
+
+### Riemann solver
+
+SLAU
+
+### time integration
+
+third order TVD Runge Kutta method
 
 ## Double Mach Reflection problem
 
@@ -53,7 +67,7 @@ $./a.out
 
 `flowfield_?????.q` are solution files.
 
-File formats of these files are **plot3d**.
+File formats of these files are [**plot3d**](https://www.grc.nasa.gov/www/wind/valid/plot3d.html).
 
 ### Visualize
 
