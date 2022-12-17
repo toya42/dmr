@@ -85,7 +85,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 1.0% of total for source files.">5 statements</a>
+    title=" 1.2% of total for source files.">6 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/parameters.f"> Source File</a></li>
   </ul>
@@ -118,9 +118,13 @@
 
     </div>
     <div class="col-md-9" id='text'>
-      
+      <p>x方向格子点数
+y方向格子点数
+時間刻み幅
+比熱比と関連定数
+定数（計算速度性能に寄与するかはよくわからない）</p>
       <br>
-
+<br>
     <section class="visible-xs visible-sm hidden-md">
       <h3>Contents</h3>
  
@@ -137,10 +141,16 @@
     <section>
       <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="nl">     </span> <span class="k">implicit </span><span class="kt">double precision</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="n">o</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
-<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">jmax</span><span class="o">=</span><span class="mi">1001</span><span class="p">,</span><span class="n">kmax</span><span class="o">=</span><span class="mi">251</span><span class="p">)</span><span class="w"></span>
-<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">5.0d-5</span><span class="p">)</span><span class="w"></span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">gmma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.4d0</span><span class="p">,</span><span class="w"> </span><span class="n">gmm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gmma</span><span class="o">-</span><span class="mf">1.0d0</span><span class="p">,</span><span class="w"> </span><span class="n">gm1i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0d0</span><span class="o">/</span><span class="n">gmm1</span><span class="p">)</span><span class="w"></span>
-<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">onethird</span><span class="o">=</span><span class="mf">1.0d0</span><span class="o">/</span><span class="mf">3.0d0</span><span class="p">)</span><span class="w"></span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="nl">     </span> <span class="c">!&gt; x方向格子点数</span><span class="w"></span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">jmax</span><span class="o">=</span><span class="mi">1001</span><span class="p">)</span><span class="w"></span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="nl">     </span> <span class="c">!&gt; y方向格子点数</span><span class="w"></span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">kmax</span><span class="o">=</span><span class="w"> </span><span class="mi">251</span><span class="p">)</span><span class="w"></span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="nl">     </span> <span class="c">!&gt; 時間刻み幅</span><span class="w"></span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">5.0d-5</span><span class="p">)</span><span class="w"></span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="nl">     </span> <span class="c">!&gt; 比熱比と関連定数</span><span class="w"></span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">gmma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.4d0</span><span class="p">,</span><span class="w"> </span><span class="n">gmm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gmma</span><span class="o">-</span><span class="mf">1.0d0</span><span class="p">,</span><span class="w"> </span><span class="n">gm1i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0d0</span><span class="o">/</span><span class="n">gmm1</span><span class="p">)</span><span class="w"></span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="nl">     </span> <span class="c">!&gt; 定数（計算速度性能に寄与するかはよくわからない）</span><span class="w"></span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="nl">     </span> <span class="k">parameter</span><span class="p">(</span><span class="n">onethird</span><span class="o">=</span><span class="mf">1.0d0</span><span class="o">/</span><span class="mf">3.0d0</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
     </section>

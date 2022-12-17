@@ -85,7 +85,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 5.5% of total for procedures.">23 statements</a>
+    title=" 5.7% of total for procedures.">24 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/main.f"> Source File</a></li>
   </ul>
@@ -115,10 +115,10 @@
   href="#common-0">Common Blocks</a></h3></div>
   <div id="common-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/intg.html#common-flux~2">flux</a>
-      <a class="list-group-item" href="../proc/intg.html#common-cons~5">cons</a>
-      <a class="list-group-item" href="../proc/intg.html#common-dflx">dflx</a>
-      <a class="list-group-item" href="../proc/intg.html#common-dlxy~2">dlxy</a>
+      <a class="list-group-item" href="../proc/intg.html#common-flux~3">flux</a>
+      <a class="list-group-item" href="../proc/intg.html#common-cons~6">cons</a>
+      <a class="list-group-item" href="../proc/intg.html#common-dflx~2">dflx</a>
+      <a class="list-group-item" href="../proc/intg.html#common-dlxy~3">dlxy</a>
     </div>
   </div>
 </div>
@@ -131,6 +131,11 @@
     <h2>subroutine intg()</h2>
     
 
+    <p>x方向格子点数
+y方向格子点数
+時間刻み幅
+比熱比と関連定数
+定数（計算速度性能に寄与するかはよくわからない）</p>
 
     <h3>Arguments</h3>
     <em>None</em>
@@ -170,27 +175,27 @@
 <path fill="none" stroke="#000000" d="M53.45,-66.15C62.21,-70.33 72.17,-75.08 81.52,-79.54"/>
 <polygon fill="#000000" stroke="#000000" points="80.07,-82.73 90.6,-83.88 83.09,-76.41 80.07,-82.73"/>
 </g>
-<!-- xflx -->
+<!-- yflx -->
 <g id="proc~~intg~~CallsGraph_node3" class="node">
-<title>xflx</title>
+<title>yflx</title>
 <polygon fill="#777777" stroke="#777777" points="144,-66 90,-66 90,-42 144,-42 144,-66"/>
-<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xflx</text>
+<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">yflx</text>
 </g>
-<!-- proc~intg&#45;&gt;xflx -->
+<!-- proc~intg&#45;&gt;yflx -->
 <g id="proc~~intg~~CallsGraph_edge2" class="edge">
-<title>proc~intg&#45;&gt;xflx</title>
+<title>proc~intg&#45;&gt;yflx</title>
 <path fill="none" stroke="#000000" d="M54.4,-54C62.39,-54 71.31,-54 79.82,-54"/>
 <polygon fill="#000000" stroke="#000000" points="79.92,-57.5 89.92,-54 79.92,-50.5 79.92,-57.5"/>
 </g>
-<!-- yflx -->
+<!-- xflx -->
 <g id="proc~~intg~~CallsGraph_node4" class="node">
-<title>yflx</title>
+<title>xflx</title>
 <polygon fill="#777777" stroke="#777777" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">yflx</text>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xflx</text>
 </g>
-<!-- proc~intg&#45;&gt;yflx -->
+<!-- proc~intg&#45;&gt;xflx -->
 <g id="proc~~intg~~CallsGraph_edge3" class="edge">
-<title>proc~intg&#45;&gt;yflx</title>
+<title>proc~intg&#45;&gt;xflx</title>
 <path fill="none" stroke="#000000" d="M53.45,-41.85C62.21,-37.67 72.17,-32.92 81.52,-28.46"/>
 <polygon fill="#000000" stroke="#000000" points="83.09,-31.59 90.6,-24.12 80.07,-25.27 83.09,-31.59"/>
 </g>
@@ -368,10 +373,10 @@
   href="#common-1">Common Blocks</a></h3></div>
   <div id="common-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/intg.html#common-flux~2">flux</a>
-      <a class="list-group-item" href="../proc/intg.html#common-cons~5">cons</a>
-      <a class="list-group-item" href="../proc/intg.html#common-dflx">dflx</a>
-      <a class="list-group-item" href="../proc/intg.html#common-dlxy~2">dlxy</a>
+      <a class="list-group-item" href="../proc/intg.html#common-flux~3">flux</a>
+      <a class="list-group-item" href="../proc/intg.html#common-cons~6">cons</a>
+      <a class="list-group-item" href="../proc/intg.html#common-dflx~2">dflx</a>
+      <a class="list-group-item" href="../proc/intg.html#common-dlxy~3">dlxy</a>
     </div>
   </div>
 </div>
@@ -382,10 +387,10 @@
     <section>
       <h2>Common Blocks</h2>
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-flux~2"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-flux~3"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/iflx.html#common-flux'>iflx</a> (subroutine)<br><a href='../program/main.html#common-flux~3'>main</a> (program)<br>">common /flux/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/iflx.html#common-flux~2'>iflx</a> (subroutine)<br><a href='../program/main.html#common-flux'>main</a> (program)<br>">common /flux/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -409,10 +414,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-cons~5"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-cons~6"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-cons'>init</a> (subroutine)<br><a href='../proc/outf.html#common-cons~2'>outf</a> (subroutine)<br><a href='../proc/stbc.html#common-cons~3'>stbc</a> (subroutine)<br><a href='../proc/c2p.html#common-cons~4'>c2p</a> (subroutine)<br><a href='../program/main.html#common-cons~6'>main</a> (program)<br>">common /cons/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-cons~2'>init</a> (subroutine)<br><a href='../proc/outf.html#common-cons~3'>outf</a> (subroutine)<br><a href='../proc/stbc.html#common-cons~4'>stbc</a> (subroutine)<br><a href='../proc/c2p.html#common-cons~5'>c2p</a> (subroutine)<br><a href='../program/main.html#common-cons'>main</a> (program)<br>">common /cons/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -431,10 +436,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-dflx"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-dflx~2"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../program/main.html#common-dflx~2'>main</a> (program)<br>">common /dflx/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../program/main.html#common-dflx'>main</a> (program)<br>">common /dflx/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -453,10 +458,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-dlxy~2"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-dlxy~3"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/grid.html#common-dlxy'>grid</a> (subroutine)<br><a href='../program/main.html#common-dlxy~3'>main</a> (program)<br>">common /dlxy/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/grid.html#common-dlxy~2'>grid</a> (subroutine)<br><a href='../program/main.html#common-dlxy'>main</a> (program)<br>">common /dlxy/</a>
   </h3></div>
   <div class="panel-body">
     

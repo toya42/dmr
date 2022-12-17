@@ -85,7 +85,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="15.9% of total for procedures.">66 statements</a>
+    title="15.8% of total for procedures.">67 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/main.f"> Source File</a></li>
   </ul>
@@ -115,12 +115,12 @@
   href="#common-0">Common Blocks</a></h3></div>
   <div id="common-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/stbc.html#common-stt0~2">stt0</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-stt1~2">stt1</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-mesh~3">mesh</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-cons~3">cons</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-time~2">time</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-loop~2">loop</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-stt0~3">stt0</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-stt1~3">stt1</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-mesh~4">mesh</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-cons~4">cons</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-time~3">time</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-loop~3">loop</a>
     </div>
   </div>
 </div>
@@ -133,6 +133,11 @@
     <h2>subroutine stbc()</h2>
     
 
+    <p>x方向格子点数
+y方向格子点数
+時間刻み幅
+比熱比と関連定数
+定数（計算速度性能に寄与するかはよくわからない）</p>
 
     <h3>Arguments</h3>
     <em>None</em>
@@ -370,12 +375,12 @@
   href="#common-1">Common Blocks</a></h3></div>
   <div id="common-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/stbc.html#common-stt0~2">stt0</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-stt1~2">stt1</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-mesh~3">mesh</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-cons~3">cons</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-time~2">time</a>
-      <a class="list-group-item" href="../proc/stbc.html#common-loop~2">loop</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-stt0~3">stt0</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-stt1~3">stt1</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-mesh~4">mesh</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-cons~4">cons</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-time~3">time</a>
+      <a class="list-group-item" href="../proc/stbc.html#common-loop~3">loop</a>
     </div>
   </div>
 </div>
@@ -386,10 +391,10 @@
     <section>
       <h2>Common Blocks</h2>
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-stt0~2"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-stt0~3"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-stt0'>init</a> (subroutine)<br><a href='../program/main.html#common-stt0~3'>main</a> (program)<br>">common /stt0/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-stt0~2'>init</a> (subroutine)<br><a href='../program/main.html#common-stt0'>main</a> (program)<br>">common /stt0/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -438,10 +443,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-stt1~2"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-stt1~3"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-stt1'>init</a> (subroutine)<br><a href='../program/main.html#common-stt1~3'>main</a> (program)<br>">common /stt1/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-stt1~2'>init</a> (subroutine)<br><a href='../program/main.html#common-stt1'>main</a> (program)<br>">common /stt1/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -490,10 +495,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-mesh~3"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-mesh~4"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/grid.html#common-mesh'>grid</a> (subroutine)<br><a href='../proc/init.html#common-mesh~2'>init</a> (subroutine)<br><a href='../program/main.html#common-mesh~4'>main</a> (program)<br>">common /mesh/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/grid.html#common-mesh~2'>grid</a> (subroutine)<br><a href='../proc/init.html#common-mesh~3'>init</a> (subroutine)<br><a href='../program/main.html#common-mesh'>main</a> (program)<br>">common /mesh/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -517,10 +522,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-cons~3"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-cons~4"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-cons'>init</a> (subroutine)<br><a href='../proc/outf.html#common-cons~2'>outf</a> (subroutine)<br><a href='../proc/c2p.html#common-cons~4'>c2p</a> (subroutine)<br><a href='../proc/intg.html#common-cons~5'>intg</a> (subroutine)<br><a href='../program/main.html#common-cons~6'>main</a> (program)<br>">common /cons/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/init.html#common-cons~2'>init</a> (subroutine)<br><a href='../proc/outf.html#common-cons~3'>outf</a> (subroutine)<br><a href='../proc/c2p.html#common-cons~5'>c2p</a> (subroutine)<br><a href='../proc/intg.html#common-cons~6'>intg</a> (subroutine)<br><a href='../program/main.html#common-cons'>main</a> (program)<br>">common /cons/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -539,10 +544,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-time~2"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-time~3"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/outf.html#common-time'>outf</a> (subroutine)<br><a href='../program/main.html#common-time~3'>main</a> (program)<br>">common /time/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/outf.html#common-time~2'>outf</a> (subroutine)<br><a href='../program/main.html#common-time'>main</a> (program)<br>">common /time/</a>
   </h3></div>
   <div class="panel-body">
     
@@ -566,10 +571,10 @@
 </div>
 
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="common-loop~2"></span><h3>
+  <div class="panel-heading codesum"><span class="anchor" id="common-loop~3"></span><h3>
       <a data-toggle="popover" data-html="true" tabindex="0" 
      data-trigger="focus"
-   data-content="<h4>Used Elsewhere:</h4><a href='../proc/outf.html#common-loop'>outf</a> (subroutine)<br><a href='../program/main.html#common-loop~3'>main</a> (program)<br>">common /loop/</a>
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/outf.html#common-loop~2'>outf</a> (subroutine)<br><a href='../program/main.html#common-loop'>main</a> (program)<br>">common /loop/</a>
   </h3></div>
   <div class="panel-body">
     
