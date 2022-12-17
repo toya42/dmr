@@ -36,6 +36,13 @@ third order TVD Runge Kutta method
 ## Double Mach Reflection problem
 
 <p align="center">
+     <img src="https://github.com/toya42/garage/blob/master/dmr/density_contour.jpeg"
+width="954" height="401"
+alt="double mach reflection"
+title="density contour of double mach reflection problem (t=0.2)">
+</p>
+
+<p align="center">
      <img src="https://github.com/toya42/garage/blob/master/dmr/density_contour.gif"
 width="954" height="401"
 alt="double mach reflection"
