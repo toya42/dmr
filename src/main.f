@@ -1,13 +1,14 @@
+!> solve double mach reflection problem
       program main
         !> パラメータ等設定　includeを用いるのは本来好ましくない
         include "parameters.f"
         !> 最大反復数
-        parameter(ilmt = 100)
-        !> 終了時間 
+        parameter(ilmt = 1000)
+        !> 終了時間
         parameter(tfin = 0.2d0)
         !> 格子点座標 0とmax+1は便宜上　計算領域は0-max
         common /mesh/ x(0:jmax+1,0:kmax+1),y(0:jmax+1,0:kmax+1)
-        !> $ \(\Delta x, \Delta y\)
+        !>  \(\Delta x, \Delta y\)
         !!@todo 逆数を定義しておく　intgがちょっと速くなるはず
         common /dlxy/ dltx,dlty
         !> 保存量　\(\rho,\rho u,\rho v,e \)
@@ -37,22 +38,30 @@
         double precision conn(4,0:jmax+1,0:kmax+1)
 
 ! pre-process
+        ! 格子生成
         call grid
+        ! 初期条件代入
         call init
         im = 0
         tn = 0.0d0
         df = 0.0d0
         conn = cons
+        ! 書き出し
         call outf
 ! main iteration
         do im=1,ilmt
 !         runge kutta
 !         (1)
           tt = tn+dt
+          ! 境界条件代入
           call stbc
+          ! 保存量から基本量へ変換
           call c2p
+          ! 界面まで補間
           call intp
+          ! 非粘性流束評価
           call iflx
+          ! 時間増分の計算
           call intg
           do k=1,kmax
             do j=1,jmax
@@ -83,7 +92,7 @@
           end do
  
 !         (3)
-          tt = tn+dt        
+          tt = tn+dt
           call stbc
           call c2p
           call intp
