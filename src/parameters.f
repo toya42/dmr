@@ -1,0 +1,5 @@
+      implicit double precision (a-h,o-z)
+      parameter(jmax=1001,kmax=251)
+      parameter(dt=5.0d-5)
+      parameter(gmma = 1.4d0, gmm1 = gmma-1.0d0, gm1i = 1.0d0/gmm1)
+      parameter(onethird=1.0d0/3.0d0)
