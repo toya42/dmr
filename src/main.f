@@ -1,21 +1,39 @@
       program main
+        !> パラメータ等設定　includeを用いるのは本来好ましくない
         include "parameters.f"
+        !> 最大反復数
         parameter(ilmt = 100)
+        !> 終了時間 
         parameter(tfin = 0.2d0)
+        !> 格子点座標 0とmax+1は便宜上　計算領域は0-max
         common /mesh/ x(0:jmax+1,0:kmax+1),y(0:jmax+1,0:kmax+1)
+        !> $ \(\Delta x, \Delta y\)
+        !!@todo 逆数を定義しておく　intgがちょっと速くなるはず
         common /dlxy/ dltx,dlty
+        !> 保存量　\(\rho,\rho u,\rho v,e \)
         common /cons/ cons(4,0:jmax+1,0:kmax+1)
+        !> 基本量　\(\rho,u,v,p \)
         common /pris/ pris(4,0:jmax+1,0:kmax+1)
+        !> t:現在時間, tt:サブステップの時間
         common /time/ tn,tt
+        !> 反復数
         common /loop/ im
+        !> before shock state
         common /stt0/ r0,p0,u0,v0,ru0,rv0,e0
+        !> after shock state
         common /stt1/ r1,p1,u1,v1,ru1,rv1,e1
+        !> 非粘性流束
         common /flux/ xflx(4,jmax,kmax),yflx(4,jmax,kmax)
+        !> 流束評価面に補間された値 l:left, r:right
         common /sval/ pxl(4,0:jmax+1,0:kmax+1),pxr(4,0:jmax+1,0:kmax+1),
      &                pyl(4,0:jmax+1,0:kmax+1),pyr(4,0:jmax+1,0:kmax+1)
+        !> 時間増分
         common /dflx/ df(4,jmax,kmax)
+        !> 非粘性流束評価で用いる値
         common /sflr/ conL(4), conR(4),dnflx(4)
+        !> 流束評価面の法線ベクトル
         common /nvec/ dnx,dny
+        !> n stepの保存量の一時的置き場
         double precision conn(4,0:jmax+1,0:kmax+1)
 
 ! pre-process
