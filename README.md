@@ -35,10 +35,6 @@ third order TVD Runge Kutta method
 
 ## Double Mach Reflection problem
 
-The double mach reflection problem is firstly proposed by Woodward and Collela (JCP, 1984)[1].
-
-This problem is an important test case for the assessment of the resolution of Euler codes[2].
-
 <p align="center">
      <img src="https://github.com/toya42/garage/blob/master/dmr/density_contour.gif"
 width="954" height="401"
@@ -46,7 +42,9 @@ alt="double mach reflection"
 title="density contour movie of double mach reflection problem">
 </p>
 
-density contour profile of double mach reflection problem
+The double mach reflection problem is firstly proposed by Woodward and Collela (JCP, 1984)[1].
+
+This problem is an important test case for the assessment of the resolution of Euler codes[2].
 
 ## Dependency
 
