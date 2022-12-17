@@ -46,6 +46,8 @@ alt="double mach reflection"
 title="density contour movie of double mach reflection problem">
 </p>
 
+density contour profile of double mach reflection problem
+
 ## Dependency
 
 Only a fortran compiler is required to compile this code.
