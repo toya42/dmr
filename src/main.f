@@ -128,6 +128,12 @@
       end program main
 
       subroutine grid
+! generate grid
+! in
+!		jmax, kmax (from parameters.f)
+! out
+!		x, y
+!		dltx,dlty
         include "parameters.f"
         parameter (xmin=0.00d0,xmax=4.00d0)
         parameter (ymin=0.00d0,ymax=1.00d0)
@@ -138,6 +144,7 @@
         dltx=(xmax-xmin)/(jmax-1)
         dlty=(ymax-ymin)/(kmax-1)
         write(*,*) 'dx,dy: ', dltx,dlty
+! this definition is not correct
         cfl = 10.0d0*dt/dmax1(dltx,dlty)
         write(*,*) 'cfl: ', cfl
 
@@ -147,7 +154,7 @@
             y(j,k) = (k-1)*dlty
           end do
         end do
-
+! plot3d grid file (two-dimensional grid data)
         open(7,form='unformatted',file='grid.xyz')
         write(7) jmax,kmax
         write(7) ((x(j,k),j=1,jmax),k=1,kmax),
@@ -157,6 +164,14 @@
       end subroutine grid
 
       subroutine init
+! initialize flowfield
+! in
+!		x,y
+! hard coding value
+!		stt0 (before shock state)
+!		stt1 (after  shock state)
+! out
+!		cons, pris: conservatives & primitives
         include "parameters.f"
         common /stt0/ r0,p0,u0,v0,ru0,rv0,e0
         common /stt1/ r1,p1,u1,v1,ru1,rv1,e1
@@ -179,6 +194,7 @@
         ru1 = r1*u1
         rv1 = r1*v1
         e1 = p1*gm1i+0.5d0*r1*(u1*u1+v1*v1)
+
 
         sqr3 = dsqrt(3.0d0)
         sqr3x2i = 1.0d0/(sqr3*2.0d0)
@@ -241,6 +257,12 @@
       end subroutine init
 
       subroutine outf
+! output fowfield file
+! plot3d flowfield format (two dimensional flowfield data)
+! in
+!		cons 	: conservatives
+!		tn		: time at im step
+!		im		: number of steps
         include "parameters.f"
         common /cons/ cons(4,0:jmax+1,0:kmax+1)
         common /time/ tn,tt
@@ -258,13 +280,19 @@
       end subroutine outf
 
       subroutine stbc
+! set boundary value
+! in
+! 	stt0, stt1, x, y, tt
+! inout
+!		cons
+
         include "parameters.f"
         common /stt0/ r0,p0,u0,v0,ru0,rv0,e0
         common /stt1/ r1,p1,u1,v1,ru1,rv1,e1
         common /mesh/ x(0:jmax+1,0:kmax+1),y(0:jmax+1,0:kmax+1)
         common /cons/ cons(4,0:jmax+1,0:kmax+1)
         common /time/ tn,tt
-        common /loop/ im
+
 ! j=jmax (subsonic outflow)
         j=jmax
         do k=1,kmax
@@ -308,6 +336,7 @@
         k=1
         do j=1,jmax
           if(x(j,k)>0.5d0*onethird) then
+! slip wall
             vl1 = dsqrt(cons(2,j,k+1)*cons(2,j,k+1)
      &                 +cons(3,j,k+1)*cons(3,j,k+1))/cons(1,j,k+1)
             vl0 = dsign(vl1,cons(2,j,k))
@@ -327,6 +356,11 @@
       end subroutine stbc
 
       subroutine c2p
+! conservatives to primitives
+! in
+!		cons
+! out
+!		primitives
         include "parameters.f"
         common /cons/ cons(4,0:jmax+1,0:kmax+1)
         common /pris/ pris(4,0:jmax+1,0:kmax+1)
@@ -348,6 +382,17 @@
       end subroutine c2p
 
       subroutine intp
+! interpolate primitives from grid points to surfaces 
+!			using muscl interpolation
+! note
+!		 third order interpolations are only achieved without limiter
+! 
+! in
+! 	primitives
+! out
+!		pxl : left state of x normal surface
+!		pxr : right state
+! 	pyl : left state of y normal surface
         include "parameters.f"
         common /pris/ pris(4,0:jmax+1,0:kmax+1)
         common /sval/ pxl(4,0:jmax+1,0:kmax+1),pxr(4,0:jmax+1,0:kmax+1),
@@ -626,6 +671,7 @@
         common /dflx/ df(4,jmax,kmax)
         common /dlxy/ dltx,dlty
 
+!!@todo initialize df
 
         do k=2,kmax-1
           do j=2,jmax-1
